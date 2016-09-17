@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   namespace 'api', defaults: {format: 'json'} do
     resources 'users', controller: 'users'
     resources 'roles', only:[:index], controller: 'roles'
+    resources 'skills', controller: 'skills'
+    resources 'categories', controller: 'categories'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
