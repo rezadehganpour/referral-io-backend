@@ -1,7 +1,7 @@
 module Api
-  class RolesController < ActionController::API
+  class RolesController < ActionController::Base
     def index
-      render json: Role.all
+      @roles = Role.all
     end
   end
 end

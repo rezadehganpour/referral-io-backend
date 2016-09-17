@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  namespace 'api', defaults: {format: JSON} do
+  namespace 'api', defaults: {format: 'json'} do
     resources 'users', controller: 'users'
     resources 'roles', only:[:index], controller: 'roles'
   end
