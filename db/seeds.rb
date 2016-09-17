@@ -12,5 +12,5 @@
     Role.create(name: role)
   end
 [User].each(&:delete_all)
-User.create(first_name: "Reza", last_name: "Dehgan", email: "rezadehganpour@gmail.com", skills: [{"Java" => [1, 2]}, {"Ruby" => [3, 5]}], role: Role.find(2))
+User.create(first_name: "Reza", last_name: "Dehgan", email: "rezadehganpour@gmail.com", skills: [{"Java" => [1, 2]}, {"Ruby" => [3, 5]}], role: Role.find_by(name: "Front end Developer"))
 end
