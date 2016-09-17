@@ -7,10 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-[User].each(&:delete_all)
-User.create(first_name: "Reza", last_name: "Dehgan", email: "rezadehganpour@gmail.com", skills: [{"Java" => [1, 2]}, {"Ruby" => [3, 5]}], role: Role.find(2))
 ["Front end Developer", "Back end Developer", "Full Stack Developer"].each do |role|
   unless Role.exists?(name: role)
     Role.create(name: role)
   end
+[User].each(&:delete_all)
+User.create(first_name: "Reza", last_name: "Dehgan", email: "rezadehganpour@gmail.com", skills: [{"Java" => [1, 2]}, {"Ruby" => [3, 5]}], role: Role.find(2))
 end
