@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160918140114) do
+ActiveRecord::Schema.define(version: 20160918161717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,14 +51,14 @@ ActiveRecord::Schema.define(version: 20160918140114) do
     t.integer  "skill_id"
     t.integer  "user_id"
     t.float    "score"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "level_id"
+    t.integer  "reviewer_count"
   end
 
   create_table "skills", force: :cascade do |t|
     t.string   "name"
-    t.string   "category"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "category_id"
@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(version: 20160918140114) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.json     "skills"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "role_id"

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   namespace 'api', defaults: {format: 'json'} do
-    resources 'users', controller: 'users'
+    resources 'users', controller: 'users' do
+      post '/review', to: 'users#review'
+    end
     resources 'roles', only:[:index], controller: 'roles'
     resources 'skills', controller: 'skills'
     resources 'categories', controller: 'categories'

@@ -8,5 +8,6 @@ json.skills @user.skills do |s|
   json.category s.category.name
   json.score @user.skill_users.find_by(skill: s).score
   json.level @user.skill_users.find_by(skill: s).level.name
+  json.reviewer_count @user.skill_users.find_by(skill: s).reviewer_count
 end
 json.role @user.role.name
