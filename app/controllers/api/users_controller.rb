@@ -9,5 +9,8 @@ module Api
       User.create(first_name: params['firstname'], last_name: params['lastname'], email: params['email'], skills: params['skills']) 
       render json:{message: "A new user has been created successfully"}
     end
+    def show
+      @user = User.find(params[:id])
+    end
   end
 end
