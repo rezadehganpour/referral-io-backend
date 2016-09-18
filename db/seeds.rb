@@ -23,6 +23,10 @@ end
   unless Role.exists?(name: role)
     Role.create(name: role)
   end
-[User].each(&:delete_all)
-User.create(first_name: "Reza", last_name: "Dehgan", email: "rezadehganpour@gmail.com", skills: [{"Java" => [1, 2]}, {"Ruby" => [3, 5]}], role: Role.find_by(name: "Front end Developer"))
 end
+[User].each(&:delete_all)
+ u = User.create(first_name: "Reza", last_name: "Dehgan", email: "rezadehganpour@gmail.com", role: Role.find_by(name: "Front end Developer"))
+ s1 = Skill.find_by(name: 'Java')
+ s2 = Skill.find_by(name: "Ruby")
+ u.skill_users.create(skill: s1, score: 0.4)
+ u.skill_users.create(skill: s2, score: 0.8)
