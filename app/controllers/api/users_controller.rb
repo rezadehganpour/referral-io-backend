@@ -13,10 +13,9 @@ module Api
       @user = User.find(params[:id])
     end
     def review
-      reviewee = User.find(params[:review_id])
+      reviewee = User.find(params[:reviewee_id])
       skills = params[:skills]
       skills.each do |skill|
-        binding.pry
         s = Skill.find_by(name: skill['name'])
         r_s = SkillUser.find_by(user_id: reviewee.id, skill_id: s.id)
         r_s.increment_reviewer_count()
