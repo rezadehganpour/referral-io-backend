@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources 'skills', controller: 'skills'
     resources 'categories', controller: 'categories'
     resources 'levels', controller: 'levels'
+    resources 'jobs', controller: 'jobs'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
