@@ -45,7 +45,15 @@ end
  l2 = Level.find_by(name: "Competent")
  u.skill_users.create(skill: s1, score: 0.9, level: l1, reviewer_count: 1)
  u.skill_users.create(skill: s2, score: 0.6, level: l2, reviewer_count: 1)
-
- Job.create(name: "Ruby Web Developer", description: "Demonstrate ability in system analysis, design, development and implementation of Internet, multi-tier Client/Server applications and Intranet applications", skills: {"Ruby" => "Competent", "AngularJS"=> "Proficient"})
- Job.create(name: ".NET Developer", description: "Translate Use Case Requirements, technical specifications and design into code for new or enhancement projects for internal and external clients", skills: {"C#" => "Expert"})
- Job.create(name: "Front End Developer", description: "Be familiar with Configuration Management methodologies and tools, including SVN, Git, and Bamboo", skills: {"ReactJS" => "Expert", "AngularJS" => "Proficient", "EmberJS"=> "Competent"})
+ if Job.exists?(name: "Ruby Web Developer")
+   Job.create(name: "Ruby Web Developer", description: "Demonstrate ability in system analysis, design, development and implementation of Internet, multi-tier Client/Server applications and Intranet applications", skills: {"Ruby" => "Competent", "AngularJS"=> "Proficient"})
+ end
+ if Job.exists?(name: ".NET Developer")
+   Job.create(name: ".NET Developer", description: "Translate Use Case Requirements, technical specifications and design into code for new or enhancement projects for internal and external clients", skills: {"C#" => "Expert"})
+ end
+ if Job.exists?(name: "Front End Developer")
+   Job.create(name: "Front End Developer", description: "Be familiar with Configuration Management methodologies and tools, including SVN, Git, and Bamboo", skills: {"ReactJS" => "Expert", "AngularJS" => "Proficient", "EmberJS"=> "Competent"})
+ end
+ if Job.exists?(name: "Java Developer")
+   Job.create(name: "Java Developer", description: "Follow software development methodology and follow architecture standards in both waterfall and agile environments", skills: {"Java" => "Competent", "Spring"=> "Proficient"})
+ end

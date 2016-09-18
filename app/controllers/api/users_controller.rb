@@ -46,5 +46,15 @@ module Api
       end
       render json: {message: "The review has been added"}, status: 201
     end
+    def jobs 
+      @jobs = []
+      user = User.find(params[:user_id])
+      Job.all.each do |job|
+        if job.match?(user)
+         @jobs << job 
+        end
+      end
+      @jobs
+    end
   end
 end

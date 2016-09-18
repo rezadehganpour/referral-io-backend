@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources 'users', controller: 'users' do
       post '/review', to: 'users#review'
       post 'skills', to: "users#add_skill"
+      get '/jobs', to: "users#jobs"
     end
     resources 'roles', only:[:index], controller: 'roles'
     resources 'skills', controller: 'skills'
