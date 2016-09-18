@@ -12,6 +12,30 @@ module Api
     def show
       @user = User.find(params[:id])
     end
+    def add_skill
+      binding.pry
+      skills = params[:skills]
+      user = User.find(params[:user_id])
+      skills.each do |skill|
+        s = Skill.find_by(name: skill[:name])
+        score = get_score(skill[:level])
+        user.skill_users.create(skill: s, level: Level.find_by(name: skill[:level]), score: score, reviewer_count: 0)
+      end 
+      render json:{message: "New skills has been added"}, status: 201
+    end
+    def get_score(level)
+     if level == "Novice"
+       return 0
+     elsif level == "Beginner"
+       return 0.21
+     elsif level == "Competent"
+       return 0.41
+     elsif level == "Proficient"
+       return 0.61
+     elsif level == "Expert"
+       return 0.81
+     end 
+    end
     def review
       reviewee = User.find(params[:reviewee_id])
       skills = params[:skills]

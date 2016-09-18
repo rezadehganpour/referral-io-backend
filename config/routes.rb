@@ -2,10 +2,12 @@ Rails.application.routes.draw do
   namespace 'api', defaults: {format: 'json'} do
     resources 'users', controller: 'users' do
       post '/review', to: 'users#review'
+      post 'skills', to: "users#add_skill"
     end
     resources 'roles', only:[:index], controller: 'roles'
     resources 'skills', controller: 'skills'
     resources 'categories', controller: 'categories'
+    resources 'levels', controller: 'levels'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
