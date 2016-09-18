@@ -8,6 +8,7 @@ json.array! @users do |user|
     json.name s.name
     json.category s.category.name
     json.score user.skill_users.find_by(skill: s).score
+    json.level user.skill_users.find_by(skill: s).level.name
   end
   json.role user.role.name
 end

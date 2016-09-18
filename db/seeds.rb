@@ -24,15 +24,24 @@ end
     Role.create(name: role)
   end
 end
+["Novice", "Beginner", "Competent", "Proficient", "Expert"].each do |level|
+  unless Level.exists?(name: level)
+    Level.create(name: level)
+  end
+end
 [User].each(&:delete_all)
  u = User.create(first_name: "Reza", last_name: "Dehgan", email: "rezadehganpour@gmail.com", role: Role.find_by(name: "Front end Developer"))
  s1 = Skill.find_by(name: 'Java')
  s2 = Skill.find_by(name: "Ruby")
- u.skill_users.create(skill: s1, score: 0.4)
- u.skill_users.create(skill: s2, score: 0.8)
+ l1 = Level.find_by(name: "Beginner")
+ l2 = Level.find_by(name: "Proficient")
+ u.skill_users.create(skill: s1, score: 0.4, level: l1)
+ u.skill_users.create(skill: s2, score: 0.8, level: l2)
 # Second user
  u = User.create(first_name: "Jane", last_name: "Doe", email: "janedoe@startup.com", role: Role.find_by(name: "Full Stack Developer"))
  s1 = Skill.find_by(name: 'AngularJS')
  s2 = Skill.find_by(name: "Python")
- u.skill_users.create(skill: s1, score: 0.9)
- u.skill_users.create(skill: s2, score: 0.6)
+ l1 = Level.find_by(name: "Expert")
+ l2 = Level.find_by(name: "Competent")
+ u.skill_users.create(skill: s1, score: 0.9, level: l1)
+ u.skill_users.create(skill: s2, score: 0.6, level: l2)

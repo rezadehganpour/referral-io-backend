@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160918042256) do
+ActiveRecord::Schema.define(version: 20160918140114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 20160918042256) do
     t.text    "author",   null: false
     t.integer "rating",   null: false
     t.text    "category", null: false
+  end
+
+  create_table "levels", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pgmigrations", id: false, force: :cascade do |t|
@@ -47,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160918042256) do
     t.float    "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "level_id"
   end
 
   create_table "skills", force: :cascade do |t|
