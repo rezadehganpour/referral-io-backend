@@ -13,7 +13,6 @@ module Api
       @user = User.find(params[:id])
     end
     def add_skill
-      binding.pry
       skills = params[:skills]
       user = User.find(params[:user_id])
       skills.each do |skill|
