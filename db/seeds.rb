@@ -30,3 +30,9 @@ end
  s2 = Skill.find_by(name: "Ruby")
  u.skill_users.create(skill: s1, score: 0.4)
  u.skill_users.create(skill: s2, score: 0.8)
+# Second user
+ u = User.create(first_name: "Jane", last_name: "Doe", email: "janedoe@startup.com", role: Role.find_by(name: "Full Stack Developer"))
+ s1 = Skill.find_by(name: 'AngularJS')
+ s2 = Skill.find_by(name: "Python")
+ u.skill_users.create(skill: s1, score: 0.9)
+ u.skill_users.create(skill: s2, score: 0.6)
